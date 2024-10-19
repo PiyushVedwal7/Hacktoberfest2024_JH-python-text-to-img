@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handwritten Text Generator</title>
+</head>
+<body>
+    <h1>Handwritten Text Generator</h1>
+    <form method="POST">
+        <label for="text">Enter text:</label>
+        <input type="text" id="text" name="text">
+        <button type="submit">Generate</button>
+    </form>
+
+    {% if filename %}
+        <h2>Your generated image:</h2>
+        <img src="{{ url_for('static', filename='output/' + filename) }}" alt="Generated Image">
+        <br>
+        <a href="{{ download_url }}" download>Download Image</a>
+    {% endif %}
+</body>
+</html>
